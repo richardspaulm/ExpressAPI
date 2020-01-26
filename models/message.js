@@ -10,4 +10,4 @@ const message = (sequelize, DataTypes) => {
     return Message;
 }
 
-export default Message;
+export default message;

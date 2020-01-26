@@ -12,7 +12,7 @@ const user = (sequelize, DataTypes) => {
 
     User.findByLogin = async login => {
         let user = await User.findOne({
-            where: { username: login}
+            where: { username: login }  
         });
     
 

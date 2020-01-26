@@ -3,15 +3,28 @@ import uuidv4 from 'uuid/v4';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-    return res.send(Object.values(req.context.models.messages));
+router.get('/', async (req, res) => {
+    const messages = await req.context.models.Message.findAll();
+    return res.send(messages);
 })
-router.get("/:messageId", (req, res) => {
-    return res.send(req.context.models.message[req.params.messageId])
+router.get("/:messageId", async (req, res) => {
+    const message = await req.context.models.Message.findByPk(
+        req.params.messageId,
+      );
+      return res.send(message);
 })
-router.post("/", (req, res) => {
-    const id = uuidv4()
+router.post("/", async (req, res) => {
+    const message = await req.context.models.Message.create({
+        text: req.body.text,
+        userId: req.context.me.id,
+      });
+      return res.send(message);
 })
-
+router.delete('/:messageId', async (req, res) => {
+    const result = await req.context.models.Message.destroy({
+      where: { id: req.params.messageId },
+    });
+    return res.send(true);
+});
 
 export default router;
