@@ -1,0 +1,22 @@
+{
+  "name": "expressapi",
+  "version": "1.0.0",
+  "description": "Demo for playing with node/express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardspaulm/ExpressAPI.git"
+  },
+  "author": "Paul Richards",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richardspaulm/ExpressAPI/issues"
+  },
+  "homepage": "https://github.com/richardspaulm/ExpressAPI#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
